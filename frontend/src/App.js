@@ -1,13 +1,14 @@
-import './App.css';
+import Routes from "./routes";
 
-import Login from './components/Login/login';
+import Login from "./components/Login/login.js";
 
-function App() {
-  return(
-    <div className= "App">
-      <Login />
+export default function App() {
+  return (
+    <div className="Route">
+      <Routes  />;
+      <div>
+        <Login />
+      </div>
     </div>
-  )
+  );
 }
-
-export default App;
