@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Login from './components/Login/login'
 
 import {isAuthenticated} from "./auth"
 
@@ -21,8 +22,9 @@ const PrivateRoute = ({component: Component, ... rest}) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch> 
-      <Route className="login" exact path="/primeira" component = {() => <h1>Primeira Página</h1>} />
-      <Route className="Dashboard" exact path="/segunda" component = {() =><h1>Segunda Página</h1>} />
+      <Route  exact path="/" component = {Login} />
+      <Route  exact path="/dashboard" component = {() =><h1>Segunda Página</h1>} />
+      <Route  exact path="/dashboard2" component = {() =><h1>Terceira Página</h1>} />
       <PrivateRoute path = "/app" component ={() => <h1>Você está logado</h1>} />
     </Switch>
   </BrowserRouter>

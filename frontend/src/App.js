@@ -6,9 +6,6 @@ export default function App() {
   return (
     <div className="Route">
       <Routes  />;
-      <div>
-        <Login />
-      </div>
     </div>
   );
 }
