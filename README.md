@@ -2,11 +2,11 @@
 
 ## Arquitetura
 
-- [ ] Autenticacao
-- [ ] Comunicação com o banco de dados mongoDB
-- [ ] CORS
-- [ ] Dockerização
-- [ ] API GraphQL
+- [x] Autenticacao
+- [x] Comunicação com o banco de dados mongoDB
+- [x] CORS
+- [x] Dockerização
+- [x] API GraphQL
 
 ## Requisitos
 
