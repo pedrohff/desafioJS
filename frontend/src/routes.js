@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Login from './components/Login/login'
+import Input from "./components/Form/input"
 
 import {isAuthenticated} from "./auth"
 
 import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 // browserrouter = versao do router para browser
 // route = uma rota 
+
 
 const PrivateRoute = ({component: Component, ... rest}) => (
   <Route {...rest} render = {props =>(
@@ -22,7 +23,7 @@ const PrivateRoute = ({component: Component, ... rest}) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch> 
-      <Route  exact path="/" component = {Login} />
+      <Route  exact path="/" component = {Input} />
       <Route  exact path="/dashboard" component = {() =><h1>Segunda Página</h1>} />
       <Route  exact path="/dashboard2" component = {() =><h1>Terceira Página</h1>} />
       <PrivateRoute path = "/app" component ={() => <h1>Você está logado</h1>} />
