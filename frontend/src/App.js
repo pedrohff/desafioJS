@@ -1,5 +1,3 @@
-import Routes from "./routes";
-
 import  {Form} from "@unform/web"; 
 import Input from './components/Form/input';
 
