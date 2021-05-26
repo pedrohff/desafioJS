@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 // route = uma rota 
 
 
-const PrivateRoute = ({component: Component, ... rest}) => (
+const PrivateRoute = ({component: Component, ...rest}) => (
   <Route {...rest} render = {props =>(
     isAuthenticated () ? (  // se o usuário esta conectado ...
       <Component {...props} />
