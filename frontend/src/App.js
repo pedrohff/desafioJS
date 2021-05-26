@@ -3,9 +3,9 @@ import Routes from "./routes";
 import  {Form} from "@unform/web"; 
 import Input from './components/Form/input';
 
-const initialData = { // dados iniciais do backend
-  email: "sergio@gmail.com",
-}
+// const initialData = { // dados iniciais do backend
+//   email: "sergio@gmail.com",
+// }
 
 export default function App() {
 
