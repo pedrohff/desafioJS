@@ -16,7 +16,6 @@ const saveSchedule = {
   resolve: async ({ args: { scheduledAt }, context: { user } }) => {
     try {
       const scheduleDate = new Date(scheduledAt)
-      console.log(user.id)
 
       const canSchedule = await ScheduleModel.canSchedule(scheduleDate)
       if (!canSchedule) {
