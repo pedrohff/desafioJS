@@ -4,7 +4,7 @@ require('@app/graphql/types')
 
 const { authMiddleware: middleware } = require('@app/middleware')
 const { userValidator: validator } = require('@app/validator')
-const { UserTC } = require('@app/module')
+const { UserTC, ScheduleTC } = require('@app/module')
 
 schemaComposer.Query.addFields({
   user: UserTC.getResolver('user', [middleware.isAuth])
@@ -23,7 +23,8 @@ schemaComposer.Mutation.addFields({
     validator.changePassword
   ]),
   updateUser: UserTC.getResolver('updateUser', [middleware.isAuth, validator.updateUser]),
-  switchLocale: UserTC.getResolver('switchLocale', [middleware.isAuth])
+  switchLocale: UserTC.getResolver('switchLocale', [middleware.isAuth]),
+  saveSchedule: ScheduleTC.getResolver('saveSchedule', [middleware.isAuth])
 })
 
 const schema = schemaComposer.buildSchema()
