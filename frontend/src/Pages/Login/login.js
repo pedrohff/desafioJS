@@ -1,57 +1,54 @@
-import React, {useRef} from 'react';
+import React, { useState } from "react";
 
-import  {Form} from "@unform/web"; 
-import Input from "../../components/Form/input";
-import {Scope} from "@unform/core"; // define um scopo por volta de elementos em comum 
+import './login.css';
 
-//iniciando o dado com algum tipo de dado(vindo do backend por exemplo)
-const initialData = {
-  email: "sergio@vsdi.com.br", // dados iniciais
-  address: {
-    city: "João Pessoa",
-  }
+function initialState() {
+  return { user: "", password: "" };
 }
 
-// const user = {
-//   name: "Sérgio",
-//   address:{
-//     street: "Rua teste",
-//     number: 123,
-//   }
-// }
+const UserLogin = () => {
+  const [values, setValues] = useState(initialState);
 
-export default function Login (){
-  const formRef = useRef(null);
-
-  function handSubmit(data){ // recebe dados 
-    if(data.name === ""|| data.address.city===  ""){
-      // formRef.current.setFieldError("name", "O nome é obrigatório"); para um só erro 
-      formRef.current.setErrors({ // usar para notificar varios erros 
-        name: "O nome é obrigatório",
-        address:{
-          city: "A cidade é obrigatória",
-        }
-      })
-    }
-    console.log(data);//imprime na tela 
+  function onChange(event) {
+    const { value, name } = event.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
   }
-  return(
 
-    <Form ref={formRef} initialData={initialData} onSubmit={handSubmit} > 
-    <Input name="name" /> 
-    <Input type="email" name="email" />
+  return (
+    <div className="user-login">
+      <h1 className="user-login__title">Acessar o Sistema</h1>
+      <form autoComplete="nope">
+        <div className="user-login__form-control">
+          <label htmlFor="user">Usuário</label>
+          <input
+            id="user"
+            type="text"
+            name="user"
+            onChange={onChange}
+            value={values.user}
+          />
+        </div>
+        <div className="user-login__form-control">
+          <label htmlFor="password">Senha</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            onChange={onChange}
+            value={values.password}
+          />
+        </div>
+        <button 
+          type="submit"
+          className="user-login__submit-button"
+          rounded
+        >Entrar</button>
+      </form>
+    </div>
+  );
+};
 
-    <Scope path="address"> 
-      <Input name = "street"/>
-      <Input name = "neighborhood"/>
-      <Input name = "city"/>
-      <Input name = "state"/>
-      <Input name = "number"/>
-    </Scope>
-
-    <Input type="password" name="password" />
-    <button type="submit">Enviar</button>
-    </Form>
-  )
-  }
-  
+export default UserLogin;
